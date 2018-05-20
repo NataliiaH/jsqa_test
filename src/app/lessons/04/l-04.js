@@ -529,7 +529,8 @@ console.log('\nTask 04.01');
 // Використай метод push, щоб додати до масиву ще одне просте число.
 // TODO: пиши код тут:
 
-let primeNumbers;
+let primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+primeNumbers.push(31);
 
 // Цей код тестує завдання:
 if (primeNumbers && primeNumbers.length === 11) {
@@ -544,7 +545,10 @@ console.log('\nTask 04.02');
 // Points: 2
 // Напиши функцію sortNumbers і використай її у методі sort масиву primeNumbers для того, 
 // щоб відсортувати його елементи у зворотньому порядку.
-// TODO: пиши код тут:
+primeNumbers.sort(function sortNumbers(a,b){
+	return b-a;
+});
+console.log(primeNumbers);
 // Цей код тестує завдання:
 if (primeNumbers && primeNumbers[0] && primeNumbers[0] === 31) {
 	console.log('Task 04.02 is DONE! ');
@@ -559,7 +563,9 @@ if (primeNumbers && primeNumbers[0] && primeNumbers[0] === 31) {
 console.log('\nTask 04.03'); 
 // Points: 2
 // За допомогою методу splice виріж з масиву елементи з другого по третій і при цьому заміни їх на рядок 'foo'.
-// TODO: пиши код тут:
+primeNumbers.splice(2, 4, 'foo', 'foo');
+console.log(primeNumbers);
+
 if (primeNumbers && primeNumbers[2] === 'foo') {
 	console.log('Task 04.03 is DONE! ');
 } else {
@@ -574,8 +580,15 @@ console.log('\nTask 04.04');
 // Points: 2 
 // Використай метод Array.forEach для того, 
 // щоб додати до кожного елементу масиву [21, 63, 84] число '42'
-// TODO: пиши свій код тут:
-console.log('Please make Task 04.04');
+var arr1 = [21, 63, 84];
+var arr2 = [];
+arr1.forEach(function(arrItem) {
+	arrItem = arrItem + 42;
+	return arr2.push(arrItem);
+ });
+ console.log(arr2);
+
+//console.log('Please make Task 04.04');
 
 
 
@@ -591,7 +604,9 @@ var crazyMix = [1, '1', true, 2, '02', 3, '0', '10', 11, [], {}, function() {}];
 
 function arrayCleanUp(arrayToCleanUp) {
 	var cleanedUp = arrayToCleanUp;
-	// TODO: пиши свій код тут:
+	cleanedUp = cleanedUp.filter(function(arrItem){
+		return typeof(item) === 'number';
+	   });
 	return cleanedUp;
 }
 
@@ -621,7 +636,18 @@ var matrix = [
 ];
 
 function findMaxInMatrix(mtx) {
-	// TODO: пиши свій код тут:
+	var maxItem = 0;
+	mtx.forEach(function(item) {
+		item.forEach(function(item){
+			if (maxItem <= item){
+				maxItem = item;
+			}	
+		});
+		if (maxItem <= item){
+			maxItem = item;
+		}
+	  });
+	return maxItem;
 }
 
 var res = findMaxInMatrix(matrix);
