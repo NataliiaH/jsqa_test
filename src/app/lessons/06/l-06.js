@@ -349,8 +349,12 @@ const glo = 'glo site';
 	// Визнач двома способами (як функціональний вираз та як оголошення функції)
 	// функцію cube, що приймає один числовий параметр і повертає куб від цього числа.
 	// TODO: пишіть свій код тут:
-
-	console.log('\nPlease implement this task');
+	function cube(number) { return number*number*number; } 
+	var cube2 = function(number) { return Math.pow(number, 3); }; 
+	 console.log(cube(2));
+	 console.log(cube2(3));
+	
+	//console.log('\nPlease implement this task');
 
 
 
@@ -360,7 +364,7 @@ const glo = 'glo site';
 	// Points: 2
 
 	// Спробуй відповісти, не запускаючи код на виконнання: що код виведе у консоль?
-	// TODO: пиши відповідь тут:
+	console.log('result is: "Local1; Local2" then "global1; Local2"' );
 
 	console.log('\nPlease implement this task');
 
@@ -393,8 +397,20 @@ const glo = 'glo site';
 	// з консолі показував LOCAL1 замість global1
 
 	// TODO: код тут:
+	var global1 = 'global1';
+	var global2 = 'global2';
 
-	console.log('\nPlease implement this task');
+	var function2 = function () {
+		global1 = 'LOCAL1';
+		global2 = 'LOCAL2';
+		console.log('log from function scope: \n', global1, '\n', global2);
+	};
+
+	function2();
+
+	console.log('log from global scope: \n', global1, '\n', global2);
+
+	//console.log('\nPlease implement this task');
 
 
 
@@ -412,8 +428,18 @@ const glo = 'glo site';
 	// з консолі показував global2 замість LOCAL2
 
 	// TODO: код тут:
+	var global1 = 'global1';
+	var global2 = 'global2';
 
-	console.log('\nPlease implement this task');
+	var function3 = function () {
+		global1 = 'LOCAL1';
+		var global2 = 'LOCAL2';
+		console.log('log from function scope: \n', global1, '\n', global2);
+	};
+
+	function3();
+	console.log('log from global scope: \n', global1, '\n', global2);
+	//console.log('\nPlease implement this task');
 
 
 
@@ -432,6 +458,12 @@ const glo = 'glo site';
 	// Напиши код, який викликає blackBox, у якості параметра передаючи 'secret'
 
 	// TODO: пишіть свій код тут:
+	function blackBox(hidden){
+		return function insider(){ 
+			return hidden;
+		};
+	};
+	console.log(blackBox('secret'));
 
 	console.log('\nPlease implement this task');
 
